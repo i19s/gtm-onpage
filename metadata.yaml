@@ -4,3 +4,5 @@ versions:
   # Latest version
   - sha: b7ab8284514cedde4df8987993d5a175a7beaaa8
     changeNotes: "Initial Commit"
+  - sha: 8268975eca4c111beef655062ab4564583c3fd50
+    changeNotes: "Complete rewrite"
