@@ -98,6 +98,13 @@ ___TEMPLATE_PARAMETERS___
         "displayName": "User Value 2",
         "simpleValueType": true,
         "help": "These fields are for free additional information. All formats are accepted."
+      },
+      {
+        "type": "TEXT",
+        "name": "user_value_3",
+        "displayName": "User Value 3",
+        "simpleValueType": true,
+        "help": "These fields are for free additional information. All formats are accepted."
       }
     ]
   },
@@ -204,6 +211,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
         QueryParameter["USER_AGENT"] = "user_agent";
         QueryParameter["USER_VALUE_1"] = "uv1";
         QueryParameter["USER_VALUE_2"] = "uv2";
+        QueryParameter["USER_VALUE_3"] = "uv3";
         QueryParameter["VERSION"] = "ver";
         QueryParameter["CLICK_IDS"] = "iclid";
         QueryParameter["CLICK_COOKIE"] = "tsc";
@@ -220,6 +228,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
         QueryParameter["CONVERSION_RESPONSE_TYPE"] = "typ";
         QueryParameter["TRACKING_CATEGORY"] = "trc";
         QueryParameter["IP_ADDRESS"] = "ip_address";
+        QueryParameter["ADMEDIA_CODE"] = "amc";
     })(QueryParameter || (QueryParameter = {}));
 
     var BasketParam;
@@ -279,6 +288,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
         var customer_id = encodeUriComponent(config.customer_id || '');
         var user_value_1 = encodeUriComponent(config.user_value_1 || '');
         var user_value_2 = encodeUriComponent(config.user_value_2 || '');
+        var user_value_3 = encodeUriComponent(config.user_value_3 || '');
         var site_id = encodeUriComponent(config.site_id || '');
         var product_id = encodeUriComponent(config.product_id || '');
         var timestamp = encodeUriComponent(config.timestamp.toString() || '');
@@ -300,6 +310,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
         var unique_id = encodeUriComponent(config.unique_id || '');
         var tracking_category = encodeUriComponent(config.tracking_category || '');
         var ip_address = encodeUriComponent(config.ip_address || '');
+        var admedia_code = encodeUriComponent(config.admedia_code || '');
         var baseUrl = "".concat(protocol, "://").concat(tracking_domain, "/ts/").concat(advertiser_id);
         logToConsole('Base URL: ' + baseUrl);
         var queryString = '';
@@ -318,119 +329,127 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
         logToConsole('tracking_url_type: ' + queryString);
         if (version) {
             queryString += "".concat(QueryParameter.VERSION, "=").concat(version);
-            logToConsole(QueryParameter.VERSION + ':' + queryString);
+            logToConsole(QueryParameter.VERSION + '=' + version);
         }
         if (i19s_click_cookie) {
             queryString += "&".concat(QueryParameter.CLICK_COOKIE, "=").concat(i19s_click_cookie);
-            logToConsole(QueryParameter.CLICK_COOKIE + ':' + queryString);
+            logToConsole(QueryParameter.CLICK_COOKIE + '=' + i19s_click_cookie);
         }
         if (i19s_view_cookie) {
             queryString += "&".concat(QueryParameter.VIEW_COOKIE, "=").concat(i19s_view_cookie);
-            logToConsole(QueryParameter.VIEW_COOKIE + ':' + queryString);
+            logToConsole(QueryParameter.VIEW_COOKIE + '=' + i19s_view_cookie);
         }
         if (i19s_click_ids) {
             queryString += "&".concat(QueryParameter.CLICK_IDS, "=").concat(i19s_click_ids);
-            logToConsole(QueryParameter.CLICK_IDS + ':' + queryString);
+            logToConsole(QueryParameter.CLICK_IDS + '=' + i19s_click_ids);
         }
         if (redirect_mode) {
             queryString += "&".concat(QueryParameter.REDIRECT_MODE, "=").concat(redirect_mode);
-            logToConsole(QueryParameter.REDIRECT_MODE + ':' + queryString);
+            logToConsole(QueryParameter.REDIRECT_MODE + '=' + redirect_mode);
         }
         if (customer_id) {
             queryString += "&".concat(QueryParameter.CUSTOMER_ID, "=").concat(customer_id);
-            logToConsole(QueryParameter.CUSTOMER_ID + ':' + queryString);
+            logToConsole(QueryParameter.CUSTOMER_ID + '=' + customer_id);
         }
         if (user_value_1) {
             queryString += "&".concat(QueryParameter.USER_VALUE_1, "=").concat(user_value_1);
-            logToConsole(QueryParameter.USER_VALUE_1 + ':' + queryString);
+            logToConsole(QueryParameter.USER_VALUE_1 + '=' + user_value_1);
         }
         if (user_value_2) {
             queryString += "&".concat(QueryParameter.USER_VALUE_2, "=").concat(user_value_2);
-            logToConsole(QueryParameter.USER_VALUE_2 + ':' + queryString);
+            logToConsole(QueryParameter.USER_VALUE_2 + '=' + user_value_2);
+        }
+        if (user_value_3) {
+            queryString += "&".concat(QueryParameter.USER_VALUE_3, "=").concat(user_value_3);
+            logToConsole(QueryParameter.USER_VALUE_3 + '=' + user_value_3);
         }
         if (site_id) {
             queryString += "&".concat(QueryParameter.SITE_ID, "=").concat(site_id);
-            logToConsole(QueryParameter.SITE_ID + ':' + queryString);
+            logToConsole(QueryParameter.SITE_ID + '=' + site_id);
         }
         if (product_id) {
             queryString += "&".concat(QueryParameter.PRODUCT_ID, "=").concat(product_id);
-            logToConsole(QueryParameter.PRODUCT_ID + ':' + queryString);
+            logToConsole(QueryParameter.PRODUCT_ID + '=' + product_id);
         }
         if (timestamp) {
             queryString += "&".concat(QueryParameter.TIMESTAMP, "=").concat(timestamp);
-            logToConsole(QueryParameter.TIMESTAMP + ':' + queryString);
+            logToConsole(QueryParameter.TIMESTAMP + '=' + timestamp);
         }
         if (session_id) {
             queryString += "&".concat(QueryParameter.SESSION_ID, "=").concat(session_id);
-            logToConsole(QueryParameter.SESSION_ID + ':' + queryString);
+            logToConsole(QueryParameter.SESSION_ID + '=' + session_id);
         }
         if (http_location) {
             queryString += "&".concat(QueryParameter.HTTP_LOCATION, "=").concat(http_location);
-            logToConsole(QueryParameter.HTTP_LOCATION + ':' + queryString);
+            logToConsole(QueryParameter.HTTP_LOCATION + '=' + http_location);
         }
         if (http_referrer) {
             queryString += "&".concat(QueryParameter.HTTP_REFERRER, "=").concat(http_referrer);
-            logToConsole(QueryParameter.HTTP_REFERRER + ':' + queryString);
+            logToConsole(QueryParameter.HTTP_REFERRER + '=' + http_referrer);
         }
         if (gdpr) {
             queryString += "&".concat(QueryParameter.GDPR, "=").concat(gdpr);
-            logToConsole(QueryParameter.GDPR + ':' + queryString);
+            logToConsole(QueryParameter.GDPR + '=' + gdpr);
         }
         if (gdpr_consent) {
             queryString += "&".concat(QueryParameter.GDPR_CONSENT, "=").concat(gdpr_consent);
-            logToConsole(QueryParameter.GDPR_CONSENT + ':' + queryString);
+            logToConsole(QueryParameter.GDPR_CONSENT + '=' + gdpr_consent);
         }
         if (user_agent) {
             queryString += "&".concat(QueryParameter.USER_AGENT, "=").concat(user_agent);
-            logToConsole(QueryParameter.USER_AGENT + ':' + queryString);
+            logToConsole(QueryParameter.USER_AGENT + '=' + user_agent);
         }
         if (basket && basket !== '%5B%5D') {
             queryString += "&".concat(QueryParameter.BASKET, "=").concat(basket);
-            logToConsole(QueryParameter.BASKET + ':' + queryString);
+            logToConsole(QueryParameter.BASKET + '=' + basket);
         }
         if (conversion_id) {
             queryString += "&".concat(QueryParameter.CONVERSION_ID, "=").concat(conversion_id);
-            logToConsole(QueryParameter.CONVERSION_ID + ':' + queryString);
+            logToConsole(QueryParameter.CONVERSION_ID + '=' + conversion_id);
         }
         if (conversion_target) {
             queryString += "&".concat(QueryParameter.CONVERSION_TARGET, "=").concat(conversion_target);
-            logToConsole(QueryParameter.CONVERSION_TARGET + ':' + queryString);
+            logToConsole(QueryParameter.CONVERSION_TARGET + '=' + conversion_target);
         }
         if (customer_new) {
             queryString += "&".concat(QueryParameter.CUSTOMER_NEW, "=").concat(customer_new);
-            logToConsole(QueryParameter.CUSTOMER_NEW + ':' + queryString);
+            logToConsole(QueryParameter.CUSTOMER_NEW + '=' + customer_new);
         }
         if (discount_code) {
             queryString += "&".concat(QueryParameter.DISCOUNT_CODE, "=").concat(discount_code);
-            logToConsole(QueryParameter.DISCOUNT_CODE + ':' + queryString);
+            logToConsole(QueryParameter.DISCOUNT_CODE + '=' + discount_code);
         }
         if (discount_value) {
             queryString += "&".concat(QueryParameter.DISCOUNT_VALUE, "=").concat(discount_value);
-            logToConsole(QueryParameter.DISCOUNT_VALUE + ':' + queryString);
+            logToConsole(QueryParameter.DISCOUNT_VALUE + '=' + discount_value);
         }
         if (pay_method) {
             queryString += "&".concat(QueryParameter.PAY_METHOD, "=").concat(pay_method);
-            logToConsole(QueryParameter.PAY_METHOD + ':' + queryString);
+            logToConsole(QueryParameter.PAY_METHOD + '=' + pay_method);
         }
         if (tracking_currency) {
             queryString += "&".concat(QueryParameter.TRACKING_CURRENCY, "=").concat(tracking_currency);
-            logToConsole(QueryParameter.TRACKING_CURRENCY + ':' + queryString);
+            logToConsole(QueryParameter.TRACKING_CURRENCY + '=' + tracking_currency);
         }
         if (conversion_response_type) {
             queryString += "&".concat(QueryParameter.CONVERSION_RESPONSE_TYPE, "=").concat(conversion_response_type);
-            logToConsole(QueryParameter.CONVERSION_RESPONSE_TYPE + ':' + queryString);
+            logToConsole(QueryParameter.CONVERSION_RESPONSE_TYPE + '=' + conversion_response_type);
         }
         if (unique_id) {
             queryString += "&".concat(QueryParameter.UNIQUE_ID, "=").concat(unique_id);
-            logToConsole(QueryParameter.UNIQUE_ID + ':' + queryString);
+            logToConsole(QueryParameter.UNIQUE_ID + '=' + unique_id);
         }
         if (tracking_category) {
             queryString += "&".concat(QueryParameter.TRACKING_CATEGORY, "=").concat(tracking_category);
-            logToConsole(QueryParameter.TRACKING_CATEGORY + ':' + queryString);
+            logToConsole(QueryParameter.TRACKING_CATEGORY + '=' + tracking_category);
         }
         if (ip_address) {
             queryString += "&".concat(QueryParameter.IP_ADDRESS, "=").concat(ip_address);
-            logToConsole(QueryParameter.IP_ADDRESS + ':' + queryString);
+            logToConsole(QueryParameter.IP_ADDRESS + '=' + ip_address);
+        }
+        if (admedia_code) {
+            queryString += "&".concat(QueryParameter.ADMEDIA_CODE, "=").concat(admedia_code);
+            logToConsole(QueryParameter.ADMEDIA_CODE + '=' + admedia_code);
         }
         var url = "".concat(baseUrl).concat(queryString);
         logToConsole('Built tracking url: ' + url);
@@ -528,7 +547,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
     }
 
     var DEFAULT_TRACKING_HOST = 'proxy.ingenious.cloud';
-    var TAG_VERSION = 'taglify_v1';
+    var TAG_VERSION = 'fc72dfa9c34d84ee77f778193e3c062c028d6a75';
 
     function sendPixelRequest(sendPixel, url) {
         sendPixel(url, function () {
@@ -541,6 +560,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
     var newClickId = getQueryParameters(QueryParameter.CLICK_IDS) || '';
     updateClickIdCookie(logToConsole, makeString, getCookieValues, setCookie, newClickId);
     var urlData = {
+        admedia_code: "",
         ip_address: "",
         tracking_category: "",
         advertiser_id: initVariableFromTagOrDataLayer(copyFromDataLayer, logToConsole, 'advertiser_id') || '',
@@ -574,6 +594,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
         user_agent: initVariableFromTagOrDataLayer(copyFromDataLayer, logToConsole, 'user_agent') || '',
         user_value_1: initVariableFromTagOrDataLayer(copyFromDataLayer, logToConsole, 'user_value_1') || '',
         user_value_2: initVariableFromTagOrDataLayer(copyFromDataLayer, logToConsole, 'user_value_2') || '',
+        user_value_3: initVariableFromTagOrDataLayer(copyFromDataLayer, logToConsole, 'user_value_3') || '',
         version: initVariableFromTagOrDataLayer(copyFromDataLayer, logToConsole, 'version') || TAG_VERSION
     };
     var url = generateTrackingUrl(encodeUriComponent, logToConsole, json, urlData);
