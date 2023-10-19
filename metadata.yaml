@@ -8,3 +8,5 @@ versions:
     changeNotes: "Complete rewrite"
   - sha: a1acc809061afb7c50103fec9887fb7f080eb958
     changeNotes: "Update improves user tracking and code consistency"
+  - sha: 8080ff73dfd91b73316312fdbf6ff23ed7febaca
+    changeNotes: "Add header forwarding and basket processing"
