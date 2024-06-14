@@ -10,3 +10,5 @@ versions:
     changeNotes: "Update improves user tracking and code consistency"
   - sha: 8080ff73dfd91b73316312fdbf6ff23ed7febaca
     changeNotes: "Add header forwarding and basket processing"
+  - sha: 9cec129110695b75675fac60726ef022747f6716
+    changeNotes: "Fix the generation of the tracking URL"
