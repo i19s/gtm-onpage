@@ -334,8 +334,12 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
                 queryString += '/tsa?';
                 break;
             case TrackingUrlType.view:
+                logToConsole('tracking_url_type = tsv');
+                queryString += '/tsv?';
                 break;
             case TrackingUrlType.unknown:
+                logToConsole('TrackingUrlType.unknown defaults to tracking_url_type = tsc');
+                queryString += '/tsc?';
                 break;
         }
         if (version) {
@@ -559,7 +563,7 @@ ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
     }
 
     var DEFAULT_TRACKING_HOST = 'proxy.ingenious.cloud';
-    var TAG_VERSION = 'fe36494dc1f81d2f19b4fe821e5e03384a7a9fcd';
+    var TAG_VERSION = '47e8f98d2f66a2b11b249dc01f126382fb76f545';
 
     function sendPixelRequest(sendPixel, url) {
         sendPixel(url, function () {
